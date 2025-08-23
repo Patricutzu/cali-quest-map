@@ -17,6 +17,7 @@ import WorkoutNode from './WorkoutNode';
 import WorkoutModal from './WorkoutModal';
 import { workouts, initialProgress, Workout, WorkoutProgress } from '@/data/workouts';
 import { toast } from '@/hooks/use-toast';
+import journeyBackground from '@/assets/journey-map-background.jpg';
 
 const nodeTypes = {
   workout: WorkoutNode,
@@ -27,14 +28,16 @@ const createInitialNodes = (workouts: Workout[], progress: WorkoutProgress[]): N
   return workouts.map((workout, index) => {
     const workoutProgress = progress.find(p => p.workoutId === workout.id) || { workoutId: workout.id, status: 'locked' as const };
     
-    // Position nodes in a winding path
-    const x = 200 + (index % 2) * 400 + Math.sin(index) * 100;
-    const y = 100 + index * 150;
+    // Position nodes in a vertical Duolingo-style path
+    const x = 400 + (index % 2 === 0 ? -50 : 50) + Math.sin(index * 0.5) * 80;
+    const y = 150 + index * 200;
 
     return {
       id: workout.id,
       type: 'workout',
       position: { x, y },
+      draggable: false,
+      selectable: true,
       data: {
         workout,
         progress: workoutProgress,
@@ -150,6 +153,24 @@ export default function JourneyMap() {
     });
   }, []);
 
+  const handleUndoStart = useCallback((workoutId: string) => {
+    updateProgress(workoutId, 'available');
+    toast({
+      title: "Workout Reset",
+      description: "You can start this workout again when ready.",
+    });
+    setIsModalOpen(false);
+  }, [updateProgress]);
+
+  const handleRetry = useCallback((workoutId: string) => {
+    updateProgress(workoutId, 'available');
+    toast({
+      title: "Ready to Retry!",
+      description: "The workout has been reset. Good luck!",
+    });
+    setIsModalOpen(false);
+  }, [updateProgress]);
+
   const handleStartWorkout = useCallback((workoutId: string) => {
     updateProgress(workoutId, 'current');
     toast({
@@ -204,14 +225,18 @@ export default function JourneyMap() {
         onEdgesChange={onEdgesChange}
         nodeTypes={nodeTypes}
         fitView
-        fitViewOptions={{ padding: 0.2 }}
+        fitViewOptions={{ padding: 0.3 }}
         className="bg-background"
+        nodesDraggable={false}
+        nodesConnectable={false}
+        elementsSelectable={true}
+        style={{
+          backgroundImage: `url(${journeyBackground})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
       >
-        <Background 
-          gap={20} 
-          size={1} 
-          color="hsl(var(--border))" 
-        />
         <Controls 
           position="bottom-right"
           className="!bg-card !border-border"
@@ -238,6 +263,8 @@ export default function JourneyMap() {
         onClose={() => setIsModalOpen(false)}
         onStartWorkout={handleStartWorkout}
         onCompleteWorkout={handleCompleteWorkout}
+        onUndoStart={handleUndoStart}
+        onRetry={handleRetry}
         isCompleted={selectedProgress?.status === 'completed'}
         isCurrent={selectedProgress?.status === 'current'}
       />

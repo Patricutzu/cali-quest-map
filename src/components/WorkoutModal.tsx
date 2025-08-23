@@ -20,6 +20,8 @@ interface WorkoutModalProps {
   onClose: () => void;
   onStartWorkout: (workoutId: string) => void;
   onCompleteWorkout: (workoutId: string) => void;
+  onUndoStart: (workoutId: string) => void;
+  onRetry: (workoutId: string) => void;
   isCompleted: boolean;
   isCurrent: boolean;
 }
@@ -59,6 +61,8 @@ export default function WorkoutModal({
   onClose,
   onStartWorkout,
   onCompleteWorkout,
+  onUndoStart,
+  onRetry,
   isCompleted,
   isCurrent
 }: WorkoutModalProps) {
@@ -146,18 +150,36 @@ export default function WorkoutModal({
 
           <div className="flex gap-3 pt-2">
             {isCompleted ? (
-              <div className="flex-1 flex items-center justify-center gap-2 py-3 text-completed">
-                <CheckCircle className="h-5 w-5" />
-                <span className="font-semibold">Completed!</span>
-              </div>
+              <>
+                <div className="flex-1 flex items-center justify-center gap-2 py-3 text-completed">
+                  <CheckCircle className="h-5 w-5" />
+                  <span className="font-semibold">Completed!</span>
+                </div>
+                <Button
+                  onClick={() => onRetry(workout.id)}
+                  variant="outline"
+                  className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+                >
+                  Retry
+                </Button>
+              </>
             ) : isCurrent ? (
-              <Button
-                onClick={handleCompleteWorkout}
-                disabled={isCompleting}
-                className="flex-1 bg-completed hover:bg-completed/90"
-              >
-                {isCompleting ? "Completing..." : "Mark Complete"}
-              </Button>
+              <>
+                <Button
+                  onClick={handleCompleteWorkout}
+                  disabled={isCompleting}
+                  className="flex-1 bg-completed hover:bg-completed/90"
+                >
+                  {isCompleting ? "Completing..." : "Mark Complete"}
+                </Button>
+                <Button
+                  onClick={() => onUndoStart(workout.id)}
+                  variant="outline"
+                  className="border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground"
+                >
+                  Undo Start
+                </Button>
+              </>
             ) : (
               <Button
                 onClick={handleStartWorkout}
