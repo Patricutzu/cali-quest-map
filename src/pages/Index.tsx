@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Map, Target, Trophy, ChevronRight } from 'lucide-react';
 import JourneyMap from '@/components/JourneyMap';
+import JourneyGenerator from '@/components/JourneyGenerator';
 import heroBackground from '@/assets/hero-background.jpg';
 
 export default function Index() {
@@ -95,6 +96,19 @@ export default function Index() {
               </p>
             </Card>
           </div>
+        </div>
+      </section>
+
+      {/* Journey Generator Section */}
+      <section className="py-16 px-4 bg-muted/30">
+        <div className="max-w-2xl mx-auto text-center mb-8">
+          <h2 className="text-3xl font-bold mb-4">Create Your Own Journey</h2>
+          <p className="text-muted-foreground">
+            Transform any list of exercises into an epic adventure map with mystical landmarks.
+          </p>
+        </div>
+        <div className="max-w-2xl mx-auto">
+          <JourneyGenerator />
         </div>
       </section>
     </div>
