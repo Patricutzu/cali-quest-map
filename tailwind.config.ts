@@ -61,7 +61,18 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Adventure Theme Colors
+				'forest-green': 'hsl(var(--forest-green))',
+				'mountain-blue': 'hsl(var(--mountain-blue))',
+				'earth-brown': 'hsl(var(--earth-brown))',
+				'trail-gold': 'hsl(var(--trail-gold))',
+				'valley-mist': 'hsl(var(--valley-mist))',
+				'peak-snow': 'hsl(var(--peak-snow))',
+				// Workout Status Colors
+				completed: 'hsl(var(--completed))',
+				current: 'hsl(var(--current))',
+				locked: 'hsl(var(--locked))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

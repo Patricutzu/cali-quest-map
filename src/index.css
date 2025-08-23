@@ -8,35 +8,63 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Adventure Theme Colors */
+    --background: 120 20% 98%;
+    --foreground: 120 10% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 120 30% 96%;
+    --card-foreground: 120 10% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 120 30% 96%;
+    --popover-foreground: 120 10% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 130 60% 35%;
+    --primary-foreground: 120 20% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 90 40% 85%;
+    --secondary-foreground: 120 20% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 110 25% 90%;
+    --muted-foreground: 120 10% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 200 70% 60%;
+    --accent-foreground: 120 20% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 120 20% 85%;
+    --input: 120 20% 90%;
+    --ring: 130 60% 35%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Journey Map Theme Colors */
+    --forest-green: 130 60% 35%;
+    --mountain-blue: 200 70% 60%;
+    --earth-brown: 30 40% 45%;
+    --trail-gold: 45 90% 65%;
+    --valley-mist: 180 30% 85%;
+    --peak-snow: 200 20% 95%;
+    
+    /* Workout Status Colors */
+    --completed: 130 60% 35%;
+    --current: 45 90% 65%;
+    --locked: 120 10% 70%;
+    
+    /* Gradients */
+    --gradient-forest: linear-gradient(135deg, hsl(var(--forest-green)), hsl(var(--mountain-blue)));
+    --gradient-mountain: linear-gradient(180deg, hsl(var(--peak-snow)), hsl(var(--mountain-blue)));
+    --gradient-trail: linear-gradient(90deg, hsl(var(--trail-gold)), hsl(var(--forest-green)));
+    
+    /* Shadows */
+    --shadow-adventure: 0 10px 30px -10px hsl(var(--forest-green) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--trail-gold) / 0.4);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,33 +84,40 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 120 15% 8%;
+    --foreground: 120 20% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 120 20% 10%;
+    --card-foreground: 120 20% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 120 20% 10%;
+    --popover-foreground: 120 20% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 130 50% 45%;
+    --primary-foreground: 120 15% 8%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 120 15% 15%;
+    --secondary-foreground: 120 20% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 120 15% 15%;
+    --muted-foreground: 120 10% 70%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 200 60% 50%;
+    --accent-foreground: 120 20% 95%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 120 15% 20%;
+    --input: 120 15% 20%;
+    --ring: 130 50% 45%;
+    
+    /* Dark mode overrides */
+    --forest-green: 130 50% 45%;
+    --mountain-blue: 200 60% 50%;
+    --trail-gold: 45 80% 55%;
+    --valley-mist: 180 20% 25%;
+    --peak-snow: 200 15% 85%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -101,5 +136,84 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* React Flow Styles */
+.react-flow {
+  --xy-node-border-default: 1px solid hsl(var(--border));
+  --xy-node-border-radius-default: var(--radius);
+  --xy-node-background-color-default: hsl(var(--card));
+  --xy-node-color-default: hsl(var(--card-foreground));
+}
+
+.react-flow__node {
+  border-radius: var(--xy-node-border-radius-default);
+  border: var(--xy-node-border-default);
+  background-color: var(--xy-node-background-color-default);
+  color: var(--xy-node-color-default);
+}
+
+.react-flow__handle {
+  background-color: hsl(var(--background));
+  border: 2px solid hsl(var(--border));
+  border-radius: 50%;
+}
+
+.react-flow__handle:hover {
+  background-color: hsl(var(--accent));
+}
+
+.react-flow__edge-path {
+  stroke: hsl(var(--trail-gold));
+  stroke-width: 2;
+}
+
+.react-flow__controls {
+  background-color: hsl(var(--card)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: var(--radius);
+}
+
+.react-flow__controls button {
+  background-color: hsl(var(--card)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+.react-flow__controls button:hover {
+  background-color: hsl(var(--accent)) !important;
+}
+
+.react-flow__minimap {
+  background-color: hsl(var(--card)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: var(--radius);
+}
+
+/* Custom workout node styles */
+.workout-node .react-flow__handle {
+  width: 12px;
+  height: 12px;
+}
+
+/* Workout status specific styles */
+.workout-node [data-status="completed"] {
+  border-color: hsl(var(--completed));
+  box-shadow: 0 0 20px hsl(var(--completed) / 0.3);
+}
+
+.workout-node [data-status="current"] {
+  border-color: hsl(var(--current));
+  box-shadow: 0 0 20px hsl(var(--current) / 0.4);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--current) / 0.4);
+  }
+  50% {
+    box-shadow: 0 0 30px hsl(var(--current) / 0.6);
   }
 }
