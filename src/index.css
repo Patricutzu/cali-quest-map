@@ -27,11 +27,11 @@
   }
 
   :root {
-    --night: #050814;
-    --deep: #0b1022;
-    --gold: #ffd17d;
-    --sand: #c9a86a;
-    --ivory: #f7f1e3;
+    --night: 228 60% 4.9%;
+    --deep: 227 51.1% 8.8%;
+    --gold: 38.8 100% 74.5%;
+    --sand: 39.2 46.8% 60.2%;
+    --ivory: 42 55.6% 92.9%;
   }
 
   * {
@@ -40,8 +40,8 @@
   }
 
   body {
-    background: var(--night);
-    color: var(--ivory);
+    background: hsl(var(--night));
+    color: hsl(var(--ivory));
   }
 }
 
@@ -114,19 +114,19 @@
 
 @layer utilities {
   .bg-night {
-    background-color: var(--night);
+    background-color: hsl(var(--night));
   }
   .bg-deep {
-    background-color: var(--deep);
+    background-color: hsl(var(--deep));
   }
   .text-ivory {
-    color: var(--ivory);
+    color: hsl(var(--ivory));
   }
   .text-gold {
-    color: var(--gold);
+    color: hsl(var(--gold));
   }
   .border-gold {
-    border-color: var(--gold);
+    border-color: hsl(var(--gold));
   }
 }
 
