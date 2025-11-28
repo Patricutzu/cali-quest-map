@@ -2,218 +2,152 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    /* Adventure Theme Colors */
-    --background: 120 20% 98%;
-    --foreground: 120 10% 15%;
-
-    --card: 120 30% 96%;
-    --card-foreground: 120 10% 15%;
-
-    --popover: 120 30% 96%;
-    --popover-foreground: 120 10% 15%;
-
-    --primary: 130 60% 35%;
-    --primary-foreground: 120 20% 98%;
-
-    --secondary: 90 40% 85%;
-    --secondary-foreground: 120 20% 25%;
-
-    --muted: 110 25% 90%;
-    --muted-foreground: 120 10% 50%;
-
-    --accent: 200 70% 60%;
-    --accent-foreground: 120 20% 98%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 120 20% 85%;
-    --input: 120 20% 90%;
-    --ring: 130 60% 35%;
-
-    --radius: 0.75rem;
-
-    /* Journey Map Theme Colors */
-    --forest-green: 130 60% 35%;
-    --mountain-blue: 200 70% 60%;
-    --earth-brown: 30 40% 45%;
-    --trail-gold: 45 90% 65%;
-    --valley-mist: 180 30% 85%;
-    --peak-snow: 200 20% 95%;
-    
-    /* Workout Status Colors */
-    --completed: 130 60% 35%;
-    --current: 45 90% 65%;
-    --locked: 120 10% 70%;
-    
-    /* Gradients */
-    --gradient-forest: linear-gradient(135deg, hsl(var(--forest-green)), hsl(var(--mountain-blue)));
-    --gradient-mountain: linear-gradient(180deg, hsl(var(--peak-snow)), hsl(var(--mountain-blue)));
-    --gradient-trail: linear-gradient(90deg, hsl(var(--trail-gold)), hsl(var(--forest-green)));
-    
-    /* Shadows */
-    --shadow-adventure: 0 10px 30px -10px hsl(var(--forest-green) / 0.3);
-    --shadow-glow: 0 0 40px hsl(var(--trail-gold) / 0.4);
-    
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-    --radius: 0.75rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 220 35% 6%;
+    --foreground: 40 20% 92%;
+    --card: 230 25% 10%;
+    --card-foreground: 40 20% 92%;
+    --popover: 230 25% 10%;
+    --popover-foreground: 40 20% 92%;
+    --primary: 42 90% 62%;
+    --primary-foreground: 230 35% 8%;
+    --secondary: 220 40% 15%;
+    --secondary-foreground: 40 20% 92%;
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 10% 70%;
+    --accent: 210 60% 55%;
+    --accent-foreground: 40 20% 92%;
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 40 20% 96%;
+    --border: 230 25% 18%;
+    --input: 230 25% 18%;
+    --ring: 42 90% 62%;
+    --radius: 1rem;
   }
 
-  .dark {
-    --background: 120 15% 8%;
-    --foreground: 120 20% 95%;
-
-    --card: 120 20% 10%;
-    --card-foreground: 120 20% 95%;
-
-    --popover: 120 20% 10%;
-    --popover-foreground: 120 20% 95%;
-
-    --primary: 130 50% 45%;
-    --primary-foreground: 120 15% 8%;
-
-    --secondary: 120 15% 15%;
-    --secondary-foreground: 120 20% 95%;
-
-    --muted: 120 15% 15%;
-    --muted-foreground: 120 10% 70%;
-
-    --accent: 200 60% 50%;
-    --accent-foreground: 120 20% 95%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 120 15% 20%;
-    --input: 120 15% 20%;
-    --ring: 130 50% 45%;
-    
-    /* Dark mode overrides */
-    --forest-green: 130 50% 45%;
-    --mountain-blue: 200 60% 50%;
-    --trail-gold: 45 80% 55%;
-    --valley-mist: 180 20% 25%;
-    --peak-snow: 200 15% 85%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+  :root {
+    --night: 228 60% 4.9%;
+    --deep: 227 51.1% 8.8%;
+    --gold: 38.8 100% 74.5%;
+    --sand: 39.2 46.8% 60.2%;
+    --ivory: 42 55.6% 92.9%;
   }
-}
 
-@layer base {
   * {
-    @apply border-border;
+    font-family: "Poppins", "Inter", system-ui, -apple-system, sans-serif;
+    cursor: none;
   }
 
   body {
-    @apply bg-background text-foreground;
+    background: hsl(var(--night));
+    color: hsl(var(--ivory));
   }
 }
 
-/* React Flow Styles */
-.react-flow {
-  --xy-node-border-default: 1px solid hsl(var(--border));
-  --xy-node-border-radius-default: var(--radius);
-  --xy-node-background-color-default: hsl(var(--card));
-  --xy-node-color-default: hsl(var(--card-foreground));
+@layer components {
+  .clip-morph {
+    background: conic-gradient(from 45deg, rgba(255, 209, 125, 0.35), rgba(82, 116, 255, 0.25), rgba(11, 16, 34, 0.9));
+    animation: clipPulse 6s ease-in-out infinite;
+    clip-path: polygon(10% 0%, 90% 5%, 100% 40%, 80% 100%, 15% 90%, 0% 30%);
+  }
+
+  .perspective {
+    perspective: 1400px;
+  }
+
+  .flip-card {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .flip-face {
+    backface-visibility: hidden;
+  }
+
+  .flip-back {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card:hover {
+    transform: rotateY(180deg);
+  }
+
+  .parallax-layer {
+    height: 100%;
+    width: 140%;
+    background: radial-gradient(circle at 20% 30%, rgba(255, 209, 125, 0.35), transparent 40%),
+      radial-gradient(circle at 80% 40%, rgba(82, 116, 255, 0.3), transparent 35%),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0));
+    border-radius: 24px;
+    will-change: transform;
+  }
+
+  .plane {
+    position: absolute;
+    top: 40%;
+    left: -20%;
+    width: 80px;
+    height: 24px;
+    background: linear-gradient(90deg, #0b1022, #ffd17d);
+    border-radius: 999px;
+    box-shadow: 0 10px 40px rgba(255, 209, 125, 0.35);
+    animation: fly 9s ease-in-out infinite;
+  }
+
+  .testimonial {
+    transform: rotateY(0deg) rotateX(0deg);
+    transition: transform 0.8s ease, box-shadow 0.8s ease;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
+  }
+
+  .testimonial:hover {
+    transform: rotateY(8deg) rotateX(4deg) translateY(-6px);
+    box-shadow: 0 40px 120px rgba(255, 209, 125, 0.2);
+  }
+
+  .floating {
+    @apply pointer-events-none absolute left-3 top-3 text-sm text-white/50 transition-all duration-300 peer-placeholder-shown:top-3 peer-placeholder-shown:text-white/40 peer-focus:-translate-y-3 peer-focus:text-xs peer-focus:text-gold;
+  }
 }
 
-.react-flow__node {
-  border-radius: var(--xy-node-border-radius-default);
-  border: var(--xy-node-border-default);
-  background-color: var(--xy-node-background-color-default);
-  color: var(--xy-node-color-default);
+@layer utilities {
+  .bg-night {
+    background-color: hsl(var(--night));
+  }
+  .bg-deep {
+    background-color: hsl(var(--deep));
+  }
+  .text-ivory {
+    color: hsl(var(--ivory));
+  }
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+  .border-gold {
+    border-color: hsl(var(--gold));
+  }
 }
 
-.react-flow__handle {
-  background-color: hsl(var(--background));
-  border: 2px solid hsl(var(--border));
-  border-radius: 50%;
-}
-
-.react-flow__handle:hover {
-  background-color: hsl(var(--accent));
-}
-
-.react-flow__edge-path {
-  stroke: hsl(var(--trail-gold));
-  stroke-width: 2;
-}
-
-.react-flow__controls {
-  background-color: hsl(var(--card)) !important;
-  border: 1px solid hsl(var(--border)) !important;
-  border-radius: var(--radius);
-}
-
-.react-flow__controls button {
-  background-color: hsl(var(--card)) !important;
-  border: 1px solid hsl(var(--border)) !important;
-  color: hsl(var(--foreground)) !important;
-}
-
-.react-flow__controls button:hover {
-  background-color: hsl(var(--accent)) !important;
-}
-
-.react-flow__minimap {
-  background-color: hsl(var(--card)) !important;
-  border: 1px solid hsl(var(--border)) !important;
-  border-radius: var(--radius);
-}
-
-/* Custom workout node styles */
-.workout-node .react-flow__handle {
-  width: 12px;
-  height: 12px;
-}
-
-/* Workout status specific styles */
-.workout-node [data-status="completed"] {
-  border-color: hsl(var(--completed));
-  box-shadow: 0 0 20px hsl(var(--completed) / 0.3);
-}
-
-.workout-node [data-status="current"] {
-  border-color: hsl(var(--current));
-  box-shadow: 0 0 20px hsl(var(--current) / 0.4);
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    box-shadow: 0 0 20px hsl(var(--current) / 0.4);
+@keyframes clipPulse {
+  0%,
+  100% {
+    clip-path: polygon(10% 0%, 90% 5%, 100% 40%, 80% 100%, 15% 90%, 0% 30%);
   }
   50% {
-    box-shadow: 0 0 30px hsl(var(--current) / 0.6);
+    clip-path: polygon(5% 10%, 95% 0%, 100% 50%, 75% 95%, 20% 100%, 0% 40%);
+  }
+}
+
+@keyframes fly {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-4deg);
+  }
+  50% {
+    transform: translate3d(120%, -60px, 0) rotate(6deg);
+  }
+  100% {
+    transform: translate3d(260%, 0, 0) rotate(-2deg);
   }
 }
